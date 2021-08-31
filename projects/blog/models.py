@@ -3,6 +3,6 @@ from datetime import datetime
 
 class Posts(me.Document):
     title: str = me.StringField(required=True, max_length=200)
-    posts: str = me.StringField(required=True)
+    contents: str = me.StringField(required=True)
     created_on = me.DateTimeField(default=datetime.now())
 

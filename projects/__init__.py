@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_mongoengine import MongoEngine
-from projects.blog.views import blog_blueprint
+
+from projects.blog.api.routes import blog_blueprint
 
 db = MongoEngine()
 
@@ -11,7 +12,6 @@ def create_app():
     # setup extension
     db.init_app(app)
 
-    # register blueprint
     app.register_blueprint(blueprint=blog_blueprint)
 
     # shell context for flask cli
