@@ -9,8 +9,9 @@ class BaseConfig:
 
 class DevelopmentConfig(BaseConfig):
     MONGODB_SETTINGS: dict = {
-        'db': 'flask_blog_db_dev',
-        'host': 'mongodb://localhost:27017/flask_blog_db_dev'
+        'db': 'flask_blog_db',
+        'host': 'localhost',
+        'port': 27017
     }
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 

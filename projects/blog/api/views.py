@@ -1,5 +1,5 @@
 from flask_restful import Resource, reqparse
-
+from flask import jsonify
 from projects.blog.models import Posts
 
 # reqparse
@@ -15,8 +15,11 @@ posts_update.add_argument('contents', type=str)
 # views
 class PostList(Resource):
     def get(self):
-        pass
+        posts = Posts.objects()
+        return jsonify(posts)
 
-    def post(self):
-        posts = Posts(title='Test Data', contents='This Content')
+    def post(self, title: str, contents: str):
+        args = posts_parser.parse_args()
+        posts = Posts(title=args['title'], contents=args['contents'])
         posts.save()
+        return posts, 201

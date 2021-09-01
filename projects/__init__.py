@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_mongoengine import MongoEngine
 
@@ -8,6 +10,10 @@ db = MongoEngine()
 
 def create_app():
     app = Flask(__name__, static_url_path='')
+
+    # set config
+    app_settings = os.getenv('APP_SETTINGS')
+    app.config.from_object(app_settings)
 
     # setup extension
     db.init_app(app)
