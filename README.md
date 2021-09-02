@@ -13,4 +13,4 @@ this is Project Implement
 * Flask
 * MongoDB
 
-[Medium Post]()
+[Medium Post](https://ferilukmansyah.medium.com/integrating-flask-with-mongodb-35110161d9d3)
